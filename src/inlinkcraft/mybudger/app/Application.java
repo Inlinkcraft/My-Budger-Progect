@@ -1,20 +1,20 @@
 package inlinkcraft.mybudger.app;
 
-import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+import java.security.PublicKey;
+
 public class Application extends javafx.application.Application {
+
+    public static final SceneManager SCENE_MANAGER = new SceneManager();
 
     @Override
     public void start(Stage primaryStage) throws Exception {
 
-        FXMLLoader mainloader = new FXMLLoader(getClass().getResource("app_main_screen.fxml"));
-        mainloader.load();
+        SCENE_MANAGER.initialize(primaryStage);
 
-        Scene mainScene = new Scene(mainloader.getRoot());
-
-        primaryStage.setScene(mainScene);
+        SCENE_MANAGER.setActiveScene("app_main_screen");
 
         primaryStage.show();
 
